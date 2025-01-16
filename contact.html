@@ -60,9 +60,11 @@
             margin: 5px auto;
             position: relative;
         }
-.social-icons{
-    margin-bottom: 30px;
-}
+
+        .social-icons {
+            margin-bottom: 30px;
+        }
+
         form {
             padding: 15px;
         }
@@ -223,26 +225,45 @@
             box-shadow: 10px 10px 20px rgba(231, 229, 229, 0.5);
         }
 
+
+        .custom-button {
+    background-color: #4CAF50; 
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background: #45a049 !important;
+    color: white;
+}
+
+
+
         @media screen and (max-width: 768px) {
             #container {
                 margin: 20px auto;
                 width: 95%;
             }
+
             .container3 {
-            flex-direction: column; 
-        }
+                flex-direction: column;
+            }
 
-        .container3 > div {
-            flex: none; 
-            width: 100%; 
-           
-        }
+            .container3>div {
+                flex: none;
+                width: 100%;
 
-        .container3 img {
-            width: 100%; 
-            height: 230px !important;
-            object-fit: cover;
-        }
+            }
+
+            .container3 img {
+                width: 100%;
+                height: 230px !important;
+                object-fit: cover;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -307,7 +328,7 @@
             </div>
         </nav>
 
-        <div id="container" >
+        <div id="container">
             <h1 class="build" style="margin-top: 100px; ">Let’s Build the Future Together</h1>
             <h2 style="text-align: center; font-size: 18px; font-weight: 500; margin-bottom: 40px;">Whether you’re an
                 entrepreneur seeking digital solutions, a business exploring growth opportunities, or a community leader
@@ -334,57 +355,60 @@
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
-            
+
             <div class="container3" style="display: flex; align-items: center; gap: 2px; margin: 0px; padding: 0px;">
                 <!-- Left Side: Image -->
-            <div style="flex: 1; text-align: center;">
-                <img src="/images/moreimages/envato-labs-ai-df2654c1-750a-44b9-83c4-535c903f4c22.jpg" alt="Contact Us" style="max-width: 100%; height: auto;" loading="lazy">
-            </div>
-            <!-- Right Side: Form -->
-            <div style="flex: 1;">
-                <form action="#" method="post" id="contact_form" onsubmit="sendEmail(); return false;">
-                    <div class="name">
-                        <label for="name"></label>
-                        <input type="text" placeholder="My name is" name="name" id="name_input" required>
-                    </div>
-                    <div class="email">
-                        <label for="email"></label>
-                        <input type="email" placeholder="My e-mail is" name="email" id="email_input" required>
-                    </div>
-                    <div class="telephone">
-                        <label for="telephone"></label>
-                        <input type="text" placeholder="My contact number is" name="telephone" id="telephone_input" required>
-                    </div>
-                    <div class="message">
-                        <label for="message"></label>
-                        <textarea name="message" placeholder="I'd like to discuss" id="message_input" cols="30" rows="5" required></textarea>
-                    </div>
-                    <div class="submit">
-                        <input type="submit" value="Send Message" id="form_button"  />
-                    </div>
-                </form>
-                
-            </div>
+                <div style="flex: 1; text-align: center;">
+                    <img src="/images/moreimages/envato-labs-ai-df2654c1-750a-44b9-83c4-535c903f4c22.jpg"
+                        alt="Contact Us" style="max-width: 100%; height: auto;" loading="lazy">
+                </div>
+                <!-- Right Side: Form -->
+                <div style="flex: 1;">
+                    <form action="#" method="post" id="contact_form" onsubmit="sendEmail(); return false;">
+                        <div class="name">
+                            <label for="name"></label>
+                            <input type="text" placeholder="My name is" name="name" id="name_input" required>
+                        </div>
+                        <div class="email">
+                            <label for="email"></label>
+                            <input type="email" placeholder="My e-mail is" name="email" id="email_input" required>
+                        </div>
+                        <div class="telephone">
+                            <label for="telephone"></label>
+                            <input type="text" placeholder="My contact number is" name="telephone" id="telephone_input"
+                                required>
+                        </div>
+                        <div class="message">
+                            <label for="message"></label>
+                            <textarea name="message" placeholder="I'd like to discuss" id="message_input" cols="30"
+                                rows="5" required></textarea>
+                        </div>
+                        <div class="submit">
+                            <input type="submit" value="Send Message" id="form_button" />
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
         <footer class="footer">
             <p>© 2025 1921 Ventures. All Rights Reserved.</p>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"> -->
 
-        <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "R0ldvW2BzPn2oGwz2",
-      });
-   })();
-</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
-    <script >
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "R0ldvW2BzPn2oGwz2",
+            });
+        })();
+    </script>
+    </script>
+    <script>
         function sendEmail() {
             let params = {
                 name: document.getElementById('name_input').value,
@@ -393,9 +417,34 @@
                 message: document.getElementById('message_input').value,
             }
 
-            emailjs.send("service_jzh1chq", "template_rao2fzw", params).then(alert("Email Sent!"))
+            emailjs.send("service_jzh1chq", "template_rao2fzw", params)
+    .then(() => {
+        swal({
+            title: "Message Received!",
+            text: "We'll get back to you shortly.",
+            icon: "success",
+            button: {
+                text: "Okay",
+                className: "custom-button", // Add a custom class for styling
+            },
+        });
+    })
+    .catch((error) => {
+        console.error("EmailJS error:", error); // Debugging line
+        swal({
+            title: "Oops!",
+            text: "Something went wrong. Please try again.",
+            icon: "error",
+            button: {
+                text: "Retry",
+                className: "custom-button",
+            },
+        });
+    });
+
         }
     </script>
+
 </body>
 
 </html>
