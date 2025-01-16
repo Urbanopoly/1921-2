@@ -88,6 +88,49 @@
             line-height: 25px;
         }
 
+        .donate {
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 10px 20%;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(rgba(30, 230, 57, 0.5), #5e5e5e);
+            color: rgb(252, 249, 249);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            text-shadow: 2px 4px 5px rgb(0, 0, 0);
+        }
+
+        .cta-button:hover {
+            cursor: pointer;
+            color: rgb(1, 78, 1);
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            text-shadow: 0 0 8px #fff, 0 0 10px #fff;
+        }
+
+        @media screen and (max-width: 750px) {
+            .donate {
+                margin-top: 20px;
+            }
+
+            .cta-button {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+
+            .cta-button {
+                font-size: 0.8rem;
+            }
+        }
+
         @media screen and (max-width: 600px) {
             .headingtop {
                 font-weight: 1.2rem;
@@ -137,8 +180,8 @@
                 <ul class="list">
                     <li><a href="/about.html"> About 1921 Ventures</a></li>
                     <li><a href="/Why-1921.html"> Why 1921 Ventures</a></li>
-                    <li><a href="/1921-Digital.html">Explore 1921 Digital</a></li>
-                    <li><a href="/1921-Foundation.html"> Support the 1921 Foundation</a></li>
+                    <li><a href="/1921-Digital.html">1921 Digital</a></li>
+                    <li><a href="/1921-Foundation.html"> The 1921 Foundation</a></li>
                     <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -188,9 +231,15 @@
                 <div class="box-content">
                     Investing in community programs that create long-term impact.
                 </div>
-            </div>
-        </div>
 
+            </div>
+
+        </div>
+        <div style="margin-left: 15%;margin-right: 15%;">
+            <a href="#">
+                <button class="cta-button">Current Portfolio</button>
+            </a>
+        </div>
 
     </div>
     <footer class="footer">
