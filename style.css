@@ -42,16 +42,16 @@ nav {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   font-family: sans-serif;
   padding: 10px 50px;
-  /* background: linear-gradient(#020202, rgb(10, 10, 10)); */
-  background: linear-gradient(to bottom, #050505 0%, #080808 90%, rgb(32, 88, 24) 100%);
+  background: linear-gradient(#f7f6f6, rgb(23, 155, 11));
+  /* background: linear-gradient(to bottom, #050505 0%, #080808 90%, rgb(32, 88, 24) 100%); */
 }
 nav a {
   text-decoration: none;
-  color: rgb(16, 102, 5);
+  color: rgb(0, 0, 0);
   text-shadow: 0 0 1px rgb(71, 212, 78), 0 0 1px rgb(34, 212, 34), 1px 1px 1px rgb(255, 255, 255);
 }
 nav a:hover {

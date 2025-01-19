@@ -1,76 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1921 Ventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* General Reset */
         body {
-            position: relative;
             margin: 0;
-            font-family: sans-serif;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+            background: #030303;
         }
 
-        body::before {
-            content: '';
+        /* Floating Toggle Menu Styles */
+        .menu {
+            position: fixed;
+            top: 20px;
+            right: 60px;
+            z-index: 10;
+        }
+
+        .menu-item,
+        .menu-open-button {
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url(images/background/logobg.png) center/cover no-repeat;
-            z-index: -2;
-            background-position: 50% 80%;
+            color: black;
+            text-align: center;
+            line-height: 40px;
+            transform: scale(0);
+            transform-origin: center;
+            transition: transform 0.2s ease-out;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        body::after {
-            content: '';
+        .menu-open {
+            display: none;
+        }
+
+        .menu-open-button {
+            z-index: 11;
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            width: 20px;
+            height: 2px;
+            background: black;
+            display: block;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* background: rgba(8, 8, 8, 0.5); */
-            z-index: -1;
+            top: 50%;
+            left: 50%;
+            margin-left: -10.5px;
+            margin-top: -1.5px;
+            transition: transform 200ms;
         }
 
+        .hamburger-1 {
+            transform: translate3d(0, -6px, 0);
+        }
+
+        .hamburger-2 {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .hamburger-3 {
+            transform: translate3d(0, 6px, 0);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-1 {
+            transform: translate3d(0, 0, 0) rotate(45deg);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-2 {
+            transform: translate3d(0, 0, 0) scale(0.1, 1);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-3 {
+            transform: translate3d(0, 0, 0) rotate(-45deg);
+        }
+
+        /* Menu Items Animation */
+        .menu-open:checked~.menu-item {
+            transform: scale(1);
+        }
+
+        /* Menu items moving to the left when checked */
+        .menu-open:checked~.menu-item:nth-child(3) {
+            transition-duration: 190ms;
+            transform: translate3d(-45px, 0, 0);
+
+        }
+
+        .menu-open:checked~.menu-item:nth-child(4) {
+            transition-duration: 290ms;
+            transform: translate3d(-90px, 0, 0);
+
+        }
+
+        .menu-open:checked~.menu-item:nth-child(5) {
+            transition-duration: 390ms;
+            transform: translate3d(-135px, 0, 0);
+
+        }
+
+        .menu-open:checked~.menu-item:nth-child(6) {
+            transition-duration: 490ms;
+            transform: translate3d(-180px, 0, 0);
+
+        }
+        .menu-open:checked~.menu-item:nth-child(7) {
+            transition-duration: 490ms;
+            transform: translate3d(-225px, 0, 0);
+
+        }
+        .menu-open:checked~.menu-item:nth-child(8) {
+            transition-duration: 490ms;
+            transform: translate3d(-270px, 0, 0);
+
+        }
+
+        .menu-item:hover {
+            background: white;
+            color: #257704;
+        }
+
+
+        /* General reset for the video container */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 600px; 
-            aspect-ratio: 16 / 9; 
-            z-index: 1;
+            height: 100vh;
+            z-index: -1;
         }
 
-        .video-container a {
-            display: block;
-            width: 100%;
-            height: 100%;
+        /* Both videos will cover the screen */
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 10;
-            text-decoration: none;
-        }
-
-        .video-container video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+        /* By default, only show the default video for larger screens */
+        .video-container .default-video {
+            display: block;
+        }
+
+        /* Hide the mobile video on larger screens */
+        .video-container .mobile-video {
+            display: none;
+        }
+
+        /* For mobile screens, hide the default video and show the mobile video */
+        @media (max-width: 768px) {
+            .video-container .default-video {
+                display: none;
+            }
+
+            .video-container .mobile-video {
+                display: block;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <!-- Background Video -->
     <div class="video-container">
-        <a href="/main.html" aria-label="Go to main page"></a>
-        <video autoplay muted loop>
-            <source src="images/videobg.mp4" type="video/mp4">
+        <!-- Default Video for Larger Screens -->
+        <video class="default-video" autoplay muted>
+            <source src="images/1921-1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Video for Small Screens -->
+        <video class="mobile-video" autoplay muted>
+            <source src="images/1921-1_small.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+
+
+    <!-- Floating Toggle Menu -->
+    <nav class="menu">
+        <input type="checkbox" class="menu-open" id="menu-open">
+        <label class="menu-open-button" for="menu-open">
+            <span class="hamburger hamburger-1"></span>
+            <span class="hamburger hamburger-2"></span>
+            <span class="hamburger hamburger-3"></span>
+        </label>
+
+        <a href="/main.html" class="menu-item">
+            <i class="fa fa-home"></i>
+        </a>
+        <a href="/about.html" class="menu-item">
+            <i class="fa fa-info-circle"></i>
+        </a>
+        <a href="/Why-1921.html" class="menu-item">
+            <i class="fa fa-question-circle"></i> 
+        </a>
+        <a href="/1921-Digital.html" class="menu-item">
+            <i class="fa fa-laptop"></i> 
+        </a>
+        <a href="/1921-Foundation.html" class="menu-item">
+            <i class="fa fa-building"></i> 
+
+        </a>
+        <a href="/contact.html" class="menu-item">
+            <i class="fa fa-envelope"></i> 
+        </a>
+    </nav>
 </body>
+
 </html>
