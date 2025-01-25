@@ -18,12 +18,43 @@
             background: #000;
         }
 
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 8, 8, 0.1);
+            z-index: -1;
+        }
+
+
+        .container2 {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url(images/ud-2.jpg);
+            text-align: center;
+        }
 
         h1 {
             text-align: center;
             font-size: 2rem;
             font-weight: 800;
-            text-shadow: 0 0 5px rgb(37, 37, 37), 0 0 10px white;
+            text-shadow: 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13);
             margin-top: 60px;
         }
 
@@ -31,7 +62,7 @@
             font-size: 2rem;
             font-weight: 900;
             color: white;
-            text-shadow: 0 0 5px rgb(113, 202, 113), 0 0 10px rgb(105, 105, 105);
+            text-shadow: 0 0 5px rgb(113, 202, 113), 0 0 10px rgb(105, 105, 105), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13);
             margin-bottom: 10px;
             text-transform: uppercase;
         }
@@ -42,6 +73,7 @@
             font-weight: 200;
             color: white;
             font-size: 1.1rem;
+            text-shadow:  0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13), 0 0 5px rgb(37, 37, 37), 0 0 10px rgb(14, 13, 13);
         }
 
         .about-container {
@@ -55,7 +87,6 @@
             text-align: center;
             position: relative;
             width: 280px;
-            /* height: 300px; */
             background: linear-gradient(#808080, rgb(1, 78, 1));
             margin: 20px;
             padding: 20px;

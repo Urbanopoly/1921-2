@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <title> Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            color: white;
+            background: #000;
+            position: relative;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            /* This ensures the background stays fixed when scrolling */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/moreimages/envato-labs-ai-df2654c1-750a-44b9-83c4-535c903f4c22.jpg) center/cover no-repeat;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 8, 8, 0.7);
+            /* Dark overlay */
+            z-index: -1;
+        }
+
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+        ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            text-shadow: 0 0 5px rgb(12, 12, 12), 0 0 10px white, 0 0 5px rgb(37, 37, 37), 0 0 10px white, 0 0 5px rgb(12, 12, 12), 0 0 10px white, 0 0 5px rgb(5, 5, 5), 0 0 10px white;
+            margin-top: 60px;
+        }
+
+        .main-heading {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 5px rgb(10, 97, 10), 0 0 10px rgb(10, 10, 10), 0 0 5px rgb(10, 97, 10), 0 0 10px rgb(10, 10, 10), 0 0 5px rgb(10, 97, 10), 0 0 10px rgb(10, 10, 10);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .para {
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: 200;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin: 0px 10px;
+        }
+
+        .about-box {
+            text-align: center;
+            position: relative;
+            width: 360px;
+            /* height: 300px; */
+            background: linear-gradient(#808080, rgb(1, 78, 1));
+            margin: 20px;
+            padding: 20px;
+            transition: 0.6s;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-box1 {
+            text-align: center;
+            position: relative;
+            width: 900px;
+            /* height: 300px; */
+            background: linear-gradient(#808080, rgb(1, 78, 1));
+            margin: 20px;
+            padding: 20px;
+            transition: 0.6s;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-box:hover {
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            box-shadow: 0px 10px 5px rgba(231, 229, 229, 0.5);
+        }
+
+        .about-box1:hover {
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            box-shadow: 0px 10px 5px rgba(231, 229, 229, 0.5);
+        }
+
+        .box-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 15px 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .box-content {
+            font-size: 1rem;
+            font-family: 'Abel', sans-serif;
+            color: white;
+            margin: 0 10px;
+            text-align: left;
+            line-height: 22px;
+        }
+
+        .alignleft {
+            line-height: 25px;
+        }
+
+        .donate {
+            margin-top: 40px;
+        }
+
+        h3 {
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7), 2px 2px 10px rgba(0, 0, 0, 0.7), 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .subheading {
+            font-size: 28px;
+            text-shadow: 2px 2px 10px rgba(10, 10, 10, 0.7), 2px 2px 10px rgba(221, 218, 218, 0.7), rgba(248, 246, 246, 0.7), 2px 2px 10px rgba(14, 13, 13, 0.7);
+        }
+
+        button {
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 10px 20%;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(rgba(30, 230, 57, 0.5), #5e5e5e);
+            color: rgb(252, 249, 249);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            text-shadow: 2px 4px 5px rgb(0, 0, 0);
+        }
+
+        .cta-button:hover {
+            cursor: pointer;
+            color: rgb(1, 78, 1);
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            text-shadow: 0 0 8px #fff, 0 0 10px #fff;
+        }
+
+        @media screen and (max-width: 750px) {
+            .donate {
+                margin-top: 20px;
+            }
+
+            .cta-button {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+
+            .cta-button {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .headingtop {
+                font-weight: 1.2rem;
+                margin-right: 10%;
+                margin-left: 10%;
+            }
+
+            .para {
+                font-weight: 1.2rem;
+                margin-right: 5%;
+                margin-left: 5%;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .aboutheading {
+                font-size: 1.7rem;
+            }
+
+            .box-heading {
+                font-size: 1.2rem;
+            }
+
+            .box-content {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container container2">
+
+        <!-- header  -->
+        <nav>
+            <a href="/index.html"><img src="images/1921 logo.png" width="90px" alt="logo"></a>
+            <label for="toggler">
+                <i class="fa fa-bars"></i>
+            </label>
+            <input type="checkbox" id="toggler" name="">
+            <div class="menu">
+                <ul class="list">
+                    <li><a href="/about.html"> About 1921 Ventures</a></li>
+                    <li><a href="/Why-1921.html"> Why 1921 Ventures</a></li>
+                    <li><a href="/1921-Digital.html">1921 Digital</a></li>
+                    <li><a href="/1921-Foundation.html"> The 1921 Foundation</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- header  -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+        <h1 class="topspc headingtop " style="color: white; margin-top: 80px;">Portfolio Vision</h1>
+        <p class='para'>To foster a world of innovation, empowerment, and economic growth by creating transformative
+            solutions for businesses, communities, and individuals. Each entity within the 1921 Ventures Portfolio is
+            designed to address specific needs while collectively driving sustainable development, equity, and progress.
+            Together, these entities empower a diverse ecosystem of stakeholders, from entrepreneurs to consumers,
+            creating pathways to success for all.
+        </p>
+
+        <br>
+
+        <h2 class="main-heading ">Localopoly</h2>
+        <p class="para"> Create a vibrant and collaborative community through gamified engagement and
+            cooperative
+            economics.</p>
+        <p class="para">
+            To connect individuals and businesses in a shared economic ecosystem that promotes growth, loyalty, and
+            sustainable relationships.
+        </p>
+        <h3 style="font-size: 28px;">Entities</h3>
+        <div class="about-container">
+            <div class="about-box">
+                <h3 class="box-heading">Foodopoly</h3>
+                <div class="box-content alignleft">
+                    An interactive platform connecting diners with local restaurants via gamified loyalty programs and
+                    targeted promotions. <h3>Key Features</h3>
+                    Gamified experiences that reward repeat visits and engagement. <br>
+                    Targeted marketing campaigns tailored for participating restaurants. <br>
+                    Integration with digital coupons and Foodopoly experiences.
+                </div>
+            </div>
+            <div class="about-box">
+                <h3 class="box-heading">Dealopoly</h3>
+                <div class="box-content alignleft">
+                    A rewards-driven platform offering exclusive deals and discounts to enhance purchasing power and
+                    customer loyalty. <h3>Key Features</h3>
+                    Customizable deal campaigns for local businesses.<br>
+                    Consumer-friendly loyalty programs with tiered rewards. <br>
+                    Hyper-local focus to encourage community-driven commerce.
+                </div>
+            </div>
+            <div class="about-box">
+                <h3 class="box-heading">Mobilopoly</h3>
+                <div class="box-content alignleft">
+                   A mobile-first engagement hub leveraging technology to deliver personalized, location-based incentives
+                    and interactions.<h3>Key Features</h3>
+                    Mobile app integration for real-time deal notifications.<br>
+                    Location-based rewards and gamified incentives. <br>
+                    Data analytics to optimize customer engagement.
+                </div>
+            </div>
+            <div class="about-box">
+                <h3 class="box-heading">Bizopoly</h3>
+                <div class="box-content alignleft">
+                    A collaboration-focused initiative supporting local businesses through partnerships, innovation, and
+                    community-driven solutions. <h3>Key Features</h3>
+                    Business networking events and workshops.<br>
+                    Shared resources to foster innovation and growth. <br>
+                    Programs encouraging cooperative economic initiatives.
+                </div>
+            </div>
+
+        </div>
+        <h3 class="subheading">Crework - Coworking & Creative Workspaces</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision:</strong> Redefine workspaces by creating inspiring environments that fuel innovation
+                    and collaboration.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description:</strong> A dynamic coworking and creative space for entrepreneurs, freelancers,
+                    and small businesses.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Flexible membership plans tailored to various business needs.</li>
+                        <li>Creative spaces designed for brainstorming, innovation, and collaboration.</li>
+                        <li>Networking and community events to build relationships and partnerships.</li>
+                        <li>Essential amenities, including high-speed internet, meeting rooms, and printing services.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="subheading">TEAMS - Manpower & Staffing Services</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision :</strong> Revolutionize the staffing industry by creating meaningful connections
+                    between talent and
+                    opportunity.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description :</strong> Comprehensive staffing solutions connecting employers with a
+                    qualified and diverse talent pool.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Recruitment for temporary, part-time, and permanent roles.</li>
+                        <li>Workforce development programs for skill-building and career growth.</li>
+                        <li>Tailored staffing solutions for specific industries.</li>
+                        <li>Contract staffing to meet seasonal or project-based demands.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="subheading">Workology - Business Process Outsource Solutions</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision:</strong> Simplify business operations to allow companies to focus on their core
+                    mission and growth.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description:</strong> A strategic partner for outsourcing essential business processes to
+                    streamline operations, reduce costs, and improve efficiency.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Customer support and call center management.</li>
+                        <li>Data management and analytics services.</li>
+                        <li>Back-office operations, including payroll and bookkeeping.</li>
+                        <li>Process optimization strategies for maximum efficiency.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="subheading">Marketing in Black - Marketing and Advertising Agency</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision:</strong> Elevate businesses by delivering innovative marketing strategies that
+                    create measurable success and lasting impact.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description:</strong> A full-service marketing and advertising agency dedicated to building
+                    brands and driving business growth.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Comprehensive branding services, including logo design and messaging.</li>
+                        <li>Digital marketing campaigns for maximum reach and engagement.</li>
+                        <li>Creative services such as video production and graphic design.</li>
+                        <li>Market research and analytics to develop data-driven strategies.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="subheading">Deal Grabber - Discount Voucher Platform</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision:</strong> Become the go-to platform for consumers and businesses to engage in
+                    mutually beneficial commerce through value-driven discounts and loyalty programs.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description:</strong> A consumer-focused platform offering exclusive local deals to maximize
+                    value while supporting small businesses.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Exclusive discounts and promotional offers.</li>
+                        <li>User-friendly interface for seamless navigation.</li>
+                        <li>Loyalty programs incentivizing repeat purchases.</li>
+                        <li>Hyper-local focus to support community engagement.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <h3 class="subheading">Planet of the Apps - Vanity App Like Microsite and Digital Business Card Platform</h3>
+        <div class="about-container">
+            <div class="about-box1">
+                <div class="box-content alignleft">
+                    <strong>Vision:</strong> Empower individuals and businesses to showcase their brand identity and
+                    network seamlessly in a digital-first world.
+                </div>
+                <div class="box-content alignleft">
+                    <strong>Description:</strong> A versatile platform enabling professionals and businesses to create
+                    personalized vanity microsites and digital business cards.
+                </div>
+                <h3>Key Features</h3>
+                <div class="box-content alignleft">
+                    <ul>
+                        <li>Customizable microsites showcasing services, products, or personal branding.</li>
+                        <li>Digital business cards with integrated QR codes for easy sharing.</li>
+                        <li>Networking tools to facilitate professional connections.</li>
+                        <li>Analytics and insights to track interactions and optimize engagement.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <footer class="footer">
+        <p>© 2025 1921 Ventures. All Rights Reserved.</p>
+    </footer>
+    <!-- bg animation -->
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <title> Urban Domains</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            color: white;
+            background: #000;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* height: 100vh; */
+            
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 8, 8, 0.2);
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: url(images/moreimages/envato-labs-ai-df2654c1-750a-44b9-83c4-535c903f4c22.jpg) center/cover no-repeat;
+            /* background: rgba(7, 7, 7, 0.3); */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            text-shadow: 0 0 5px rgb(37, 37, 37), 0 0 10px white;
+            margin-top: 60px;
+        }
+
+        .main-heading {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 0 5px rgb(113, 202, 113), 0 0 10px rgb(105, 105, 105);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .para {
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: 200;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin: 0px 10px;
+        }
+
+        .about-box {
+            text-align: center;
+            position: relative;
+            width: 360px;
+            /* height: 300px; */
+            background: linear-gradient(#808080, rgb(1, 78, 1));
+            margin: 20px;
+            padding: 20px;
+            transition: 0.6s;
+            box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-box:hover {
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            box-shadow: 0px 10px 5px rgba(231, 229, 229, 0.5);
+        }
+
+        .box-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 15px 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .box-content {
+            font-size: 1rem;
+            font-family: 'Abel', sans-serif;
+            color: white;
+            margin: 0 10px;
+            text-align: left;
+            line-height: 22px;
+        }
+
+        .alignleft {
+            line-height: 25px;
+        }
+
+        .donate {
+            margin-top: 40px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 10px 20%;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(rgba(30, 230, 57, 0.5), #5e5e5e);
+            color: rgb(252, 249, 249);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            text-shadow: 2px 4px 5px rgb(0, 0, 0);
+        }
+
+        .cta-button:hover {
+            cursor: pointer;
+            color: rgb(1, 78, 1);
+            background: linear-gradient(rgb(1, 78, 1), #808080);
+            text-shadow: 0 0 8px #fff, 0 0 10px #fff;
+        }
+
+        @media screen and (max-width: 750px) {
+            .donate {
+                margin-top: 20px;
+            }
+
+            .cta-button {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+
+            .cta-button {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .headingtop {
+                font-weight: 1.2rem;
+                margin-right: 10%;
+                margin-left: 10%;
+            }
+
+            .para {
+                font-weight: 1.2rem;
+                margin-right: 5%;
+                margin-left: 5%;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .aboutheading {
+                font-size: 1.7rem;
+            }
+
+            .box-heading {
+                font-size: 1.2rem;
+            }
+
+            .box-content {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container container2">
+
+        <!-- header  -->
+        <nav>
+            <a href="/index.html"><img src="images/1921 logo.png" width="90px" alt="logo"></a>
+            <label for="toggler">
+                <i class="fa fa-bars"></i>
+            </label>
+            <input type="checkbox" id="toggler" name="">
+            <div class="menu">
+                <ul class="list">
+                    <li><a href="/about.html"> About 1921 Ventures</a></li>
+                    <li><a href="/Why-1921.html"> Why 1921 Ventures</a></li>
+                    <li><a href="/1921-Digital.html">1921 Digital</a></li>
+                    <li><a href="/1921-Foundation.html"> The 1921 Foundation</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- header  -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+        <h1 class="topspc headingtop " style="color: white; margin-top: 80px;">Urban Domains</h1>
+        <p class='para'>Explore a collection of innovative urban initiatives and solutions that are transforming cities
+            and communities.
+        </p>
+
+        <br>
+
+        <!-- <h2 class="main-heading ">We focus on:</h2> -->
+        <div class="about-container">
+            <div class="about-box">
+                <h3 class="box-heading">The Urbanopoly Project</h3>
+                <div class="box-content alignleft">
+                    A transformative initiative merging real estate investment with gamified community engagement.
+                    Urbanopoly leverages technology to facilitate property acquisitions and redevelopment projects in
+                    urban areas, empowering residents to participate in decision-making through interactive features.
+                    The project aims to revitalize neglected neighborhoods by turning tax-delinquent properties into
+                    community assets, fostering economic growth and improving quality of life. <br>
+                </div>
+                <div>
+                    <a href="https://theurbanopolyproject.com">
+                        <button class="cta-button">The Urbanopoly Project</button>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban AI</h3>
+                <div class="box-content alignleft">
+                    An advanced analytics division focused on harnessing the power of artificial intelligence for urban
+                    innovation. Urban AI provides tailored solutions to municipalities, businesses, and organizations,
+                    addressing challenges such as urban planning, redevelopment, blight elimination, and workforce
+                    optimization. Using machine learning and predictive modeling, Urban AI delivers actionable insights
+                    for smarter, data-driven decision-making in both public and private sectors. <br>
+                </div>
+                <div>
+                    <a href="https://urban-ai.us">
+                        <button class="cta-button">Urban AI</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Innovation Exchange (UIX)</h3>
+                <div class="box-content">
+                    A flagship project in Gary, Indiana, UIX is a dynamic hub designed to drive entrepreneurship,
+                    innovation, and community engagement. It serves as a collaborative space where startups, creatives,
+                    and community leaders can access resources, mentorship, and funding opportunities. UIX fosters
+                    cross-sector partnerships and supports pilot programs in areas such as technology, social impact,
+                    and urban development to build a thriving ecosystem.
+                </div>
+                <div>
+                    <a href="https://urbaninnovation.exchange">
+                        <button class="cta-button">Urban Innovation Exchange</button>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="about-container">
+            <div class="about-box">
+                <h3 class="box-heading">Urban Mobility Lab</h3>
+                <div class="box-content">
+                    A cutting-edge Mobility as a Service (MaaS) platform offering sustainable transportation solutions.
+                    Urban Mobility Lab focuses on integrating micromobility options such as e-bikes, scooters, and bike
+                    electrification kits. The platform prioritizes job creation through local assembly and maintenance,
+                    reduces traffic congestion, and promotes eco-friendly transportation. Urban Mobility Lab partners
+                    with communities, corporations, and public institutions to provide innovative commuting and delivery
+                    solutions.
+                </div>
+                <div>
+                    <a href="https://urbanmobilitylab.org">
+                        <button class="cta-button">Urban Mobility Lab</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urbanology Solutions</h3>
+                <div class="box-content">
+                    A municipal consultancy specializing in tackling urban challenges through GIS mapping, land
+                    management, urban planning, and blight elimination. Urbanology Solutions partners with local
+                    governments and organizations to implement data-driven strategies that optimize land use, streamline
+                    redevelopment efforts, and enhance community services. Services include forensic property audits,
+                    side lot programs, and creating land bank systems for sustainable urban regeneration.
+                </div>
+                <div>
+                    <a href="https://urbanology.solutions">
+                        <button class="cta-button">Urbanology Solutions</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Synergy</h3>
+                <div class="box-content">
+                    An initiative aimed at building a stronger sense of community by connecting resources, businesses,
+                    and individuals within urban ecosystems. Urban Synergy creates partnerships between stakeholders to
+                    drive economic development, promote collaboration, and cultivate a shared vision for urban
+                    revitalization. Programs include networking events, collaborative workshops, and initiatives that
+                    support entrepreneurship and resource sharing.
+                </div>
+                <div>
+                    <a href="https://urbansynergy.us">
+                        <button class="cta-button">Urban Synergy</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="about-container">
+            <div class="about-box">
+                <h3 class="box-heading">Urban Cash Digital</h3>
+                <div class="box-content">
+                    A fintech platform revolutionizing digital payments for urban communities. Urban Cash Digital
+                    empowers local businesses and individuals with secure, convenient payment tools. It facilitates
+                    peer-to-peer transactions, mobile wallet integration, and financial literacy programs, promoting
+                    greater economic inclusion and enabling businesses to streamline operations while enhancing customer
+                    experiences.
+                </div>
+                <div>
+                    <a href="https://urbancash.digital">
+                        <button class="cta-button">Urban Cash Digital</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Eats Group</h3>
+                <div class="box-content">
+                    A comprehensive network supporting the local restaurant industry through innovative solutions. Urban
+                    Eats Group integrates directories, gamified digital coupon campaigns, and eco-friendly delivery
+                    services to connect diners with their favorite establishments. By promoting hyper-local dining and
+                    offering tools for customer acquisition, Urban Eats Group helps restaurants thrive while creating
+                    memorable dining experiences.
+                </div>
+                <div>
+                    <a href="https://urbaneats.agency">
+                        <button class="cta-button">Urban Eats Group</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Shopping Network</h3>
+                <div class="box-content">
+                    An e-commerce platform designed to amplify urban entrepreneurs' voices and products. The Urban
+                    Shopping Network curates unique offerings from local businesses, providing a marketplace for
+                    consumers to discover high-quality, innovative products. The platform emphasizes supporting small
+                    businesses, driving community reinvestment, and offering exclusive deals to customers.
+                </div>
+                <div>
+                    <a href="https://urbanshopping.network">
+                        <button class="cta-button">Urban Shopping Network</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="about-container">
+            <div class="about-box">
+                <h3 class="box-heading">Urban EYE Media Group</h3>
+                <div class="box-content">
+                    A multimedia powerhouse producing cutting-edge content for urban audiences. Urban EYE Media Group
+                    encompasses digital and print publications, interactive magazines, video content, and social media
+                    campaigns. Its portfolio includes tools for storytelling, marketing, and education, empowering
+                    businesses and communities to share their narratives effectively while engaging audiences with
+                    meaningful content.
+                </div>
+                <div>
+                    <a href="https://urbaneye.com">
+                        <button class="cta-button">Urban EYE Media Group</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Podcast Network</h3>
+                <div class="box-content">
+                    A platform dedicated to amplifying urban voices and fostering meaningful conversations. Urban
+                    Podcast Network features podcasts on topics like entrepreneurship, culture, social issues, and
+                    innovation. By providing a space for diverse perspectives, the network connects audiences with
+                    content that informs, inspires, and uplifts urban communities.
+                </div>
+                <div>
+                    <a href="https://urbanpodcast.network">
+                        <button class="cta-button">Urban Podcast Network</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="about-box">
+                <h3 class="box-heading">Urban Planet Social</h3>
+                <div class="box-content">
+                    A next-generation social networking platform built to strengthen urban communities. Urban Planet
+                    Social supports businesses and individuals by fostering connections, promoting events, and enabling
+                    collaboration. With features like hyper-local newsfeeds, business directories, and engagement tools,
+                    the platform empowers users to build relationships and create opportunities within their local
+                    ecosystems.
+                </div>
+                <div>
+                    <a href="https://urbanplanet.social">
+                        <button class="cta-button">Urban Planet Social</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <footer class="footer">
+        <p>© 2025 1921 Ventures. All Rights Reserved.</p>
+    </footer>
+    <!-- bg animation -->
+</body>
+
+</html>
