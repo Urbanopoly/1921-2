@@ -4,128 +4,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="style.css">
-    <title>1921</title>
+    <title>1921 Ventures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* General Reset */
         body {
-            font-family: sans-serif;
-            position: relative;
             margin: 0;
-            font-family: sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: #030303;
         }
 
-        body::before {
-            content: '';
+        /* Floating Toggle Menu Styles */
+        .menu {
+            position: fixed;
+            top: 20px;
+            right: 60px;
+            z-index: 10;
+        }
+
+        .menu-item,
+        .menu-open-button {
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            color: black;
+            text-align: center;
+            line-height: 40px;
+            transform: scale(0);
+            transform-origin: center;
+            transition: transform 0.2s ease-out;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .menu-open {
+            display: none;
+        }
+
+        .menu-open-button {
+            z-index: 11;
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            width: 20px;
+            height: 2px;
+            background: black;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -10.5px;
+            margin-top: -1.5px;
+            transition: transform 200ms;
+        }
+
+        .hamburger-1 {
+            transform: translate3d(0, -6px, 0);
+        }
+
+        .hamburger-2 {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .hamburger-3 {
+            transform: translate3d(0, 6px, 0);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-1 {
+            transform: translate3d(0, 0, 0) rotate(45deg);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-2 {
+            transform: translate3d(0, 0, 0) scale(0.1, 1);
+        }
+
+        .menu-open:checked+.menu-open-button .hamburger-3 {
+            transform: translate3d(0, 0, 0) rotate(-45deg);
+        }
+
+        /* Menu Items Animation */
+        .menu-open:checked~.menu-item {
+            transform: scale(1);
+        }
+
+        /* Menu items moving to the left when checked */
+        .menu-open:checked~.menu-item:nth-child(3) {
+            transition-duration: 190ms;
+            transform: translate3d(-45px, 0, 0);
+        }
+
+        .menu-open:checked~.menu-item:nth-child(4) {
+            transition-duration: 290ms;
+            transform: translate3d(-90px, 0, 0);
+        }
+
+        .menu-open:checked~.menu-item:nth-child(5) {
+            transition-duration: 390ms;
+            transform: translate3d(-135px, 0, 0);
+        }
+
+        .menu-open:checked~.menu-item:nth-child(6) {
+            transition-duration: 490ms;
+            transform: translate3d(-180px, 0, 0);
+        }
+
+        .menu-open:checked~.menu-item:nth-child(7) {
+            transition-duration: 490ms;
+            transform: translate3d(-225px, 0, 0);
+        }
+
+        .menu-open:checked~.menu-item:nth-child(8) {
+            transition-duration: 490ms;
+            transform: translate3d(-270px, 0, 0);
+        }
+
+        .menu-item:hover {
+            background: white;
+            color: #257704;
+        }
+
+        /* General reset for the video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            z-index: 2;
+        }
+
+        /* Both videos will cover the screen */
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url(images/moreimages/envato-labs-ai-df2654c1-750a-44b9-83c4-535c903f4c22.jpg) center/cover no-repeat;
-            z-index: -1;
+            object-fit: cover;
         }
 
-        body::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(8, 8, 8, 0.2);
-            z-index: -1;
+        /* Hide the default video for small screens */
+        .video-container .default-video {
+            display: block;
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
-            background: rgba(7, 7, 7, 0.3);
+        /* Show mobile video only for smaller screens */
+        .video-container .mobile-video {
+            display: none;
         }
 
-        .headingtop,
-        .para,
-        .button-container {
-            position: relative;
-            z-index: 1;
-
-        }
-
-        .headingtop {
-            font-weight: 900;
-        }
-
-        .para {
-            font-family: sans-serif;
-            font-weight: 100 !important;
-        }
-
-        .button-container {
-            font-weight: 400;
-
-        }
-
-        @media screen and (max-width: 450px) {
-            .conatiner {
-                margin-top: 60px !important;
+        /* For mobile screens, show the mobile video and hide the default video */
+        @media (max-width: 768px) {
+            .video-container .default-video {
+                display: none;
             }
 
-            .button-container {
-                padding-top: 0px !important;
-                padding-bottom: 0px !important;
+            .video-container .mobile-video {
+                display: block;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- bg animation -->
-    <div class="container" style=" height: 100vh;">
-        <!-- header  -->
-        <nav>
-            <a href="/index.html"><img src="images/1921 logo.png" width="90px" alt="logo"></a>
-
-            <label for="toggler">
-                <i class="fa fa-bars"></i>
-            </label>
-            <input type="checkbox" id="toggler" name="">
-            <div class="menu">
-                <ul class="list">
-                    <li><a href="/about.html"> About 1921 Ventures</a></li>
-                    <li><a href="/Why-1921.html"> Why 1921 Ventures</a></li>
-                    <li><a href="/1921-Digital.html">1921 Digital</a></li>
-                    <li><a href="/1921-Foundation.html"> The 1921 Foundation</a></li>
-                    <li><a href="/contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- header  -->
-
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-        <h1 class="topspc headingtop" style="color: white; margin-top: 130px;">Building the Future Through Innovation,
-            Opportunity, and Community.</h1>
-        <!-- <h2 class="topspc" style="color: white;">Transforming Communities</h2> -->
-        <p class='para'>1921 Ventures is a transformative ecosystem that empowers entrepreneurs, strengthens
-            communities, and inspires a new era of digital and social innovation.
-        </p>
-        <div class="button-container" style="color: white; font-weight: 700;">
-            <a href="/1921-Digital.html">
-                <button style="color: white; font-weight: 600; letter-spacing: 1px;">1921 Digital</button>
-            </a>
-            <a href="/1921-Foundation.html">
-                <button style="color: white; font-weight: 600; letter-spacing: 1px;">The 1921 Foundation </button>
-            </a>
-        </div>
-
+    <!-- Background Video -->
+    <div class="video-container">
+        <video id="responsiveVideo" autoplay muted playsinline>
+            <source id="videoSource" src="./images/video2L.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    <footer class="footer">
-        <p>© 2025 1921 Ventures. All Rights Reserved.</p>
-    </footer>
-    <!-- bg animation -->
+
+
+    <!-- Floating Toggle Menu -->
+    <nav class="menu">
+        <input type="checkbox" class="menu-open" id="menu-open">
+        <label class="menu-open-button" for="menu-open">
+            <span class="hamburger hamburger-1"></span>
+            <span class="hamburger hamburger-2"></span>
+            <span class="hamburger hamburger-3"></span>
+        </label>
+
+        <a href="/main.html" class="menu-item">
+            <i class="fa fa-home"></i>
+        </a>
+        <a href="/about.html" class="menu-item">
+            <i class="fa fa-info-circle"></i>
+        </a>
+        <a href="/Why-1921.html" class="menu-item">
+            <i class="fa fa-question-circle"></i>
+        </a>
+        <a href="/1921-Digital.html" class="menu-item">
+            <i class="fa fa-laptop"></i>
+        </a>
+        <a href="/1921-Foundation.html" class="menu-item">
+            <i class="fa fa-building"></i>
+
+        </a>
+        <a href="/contact.html" class="menu-item">
+            <i class="fa fa-envelope"></i>
+        </a>
+    </nav>
+    <script>
+        // JavaScript to change the video source dynamically
+        const videoSource = document.getElementById("videoSource");
+        const videoElement = document.getElementById("responsiveVideo");
+
+        // Define the media query
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+        // Function to handle the video source change
+        const handleVideoSourceChange = () => {
+            if (mediaQuery.matches) {
+                // For screens with max-width 768px
+                videoSource.src = "./images/video2s.mp4"; // Replace with the small video source
+            } else {
+                // For larger screens
+                videoSource.src = "./images/video2L.mp4"; // Replace with the large video source
+            }
+            videoElement.load(); // Reload the video to apply the new source
+        };
+
+        // Add event listener for changes in screen size
+        mediaQuery.addEventListener("change", handleVideoSourceChange);
+
+        // Initial check
+        handleVideoSourceChange();
+    </script>
 </body>
 
 </html>
