@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1921 Project</title>
     <style>
+        @font-face {
+            font-family: 'Merchons';
+            src: url('font/Merchons.ttf') format('truetype'); /* Ensure the correct path */
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -16,17 +23,22 @@
             height: 100vh;
             background-color: #ffffff;
             font-family: Arial, sans-serif;
-        }
-
-        .splash-container {
             text-align: center;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            /* text-shadow: 0 0 5px rgb(252, 251, 251),0 0 4px rgb(8, 8, 8),0 0 4px rgb(9, 150, 4); */
+        h1, h2 {
+            font-family: 'Merchons', Arial, sans-serif;
             letter-spacing: 2px;
+        }
+
+        h1 {
+            color: rgb(230, 3, 3);
+            font-size: 35px;
+        }
+
+        h2 {
+            color: rgb(1, 168, 1);
+            font-size: 45px;
         }
 
         .logo {
@@ -36,14 +48,15 @@
         }
 
         .enter-link {
+            font-family: 'Merchons', Arial, sans-serif;
+            letter-spacing: 4px;
             display: inline-block;
             padding: 10px 20px;
             background-color: #000000;
             color: #ffffff;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 900;
-            letter-spacing: 1px;
+            font-size: 20px;
+            /* font-weight: 900; */
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
@@ -67,10 +80,10 @@
 
 <body>
     <div class="splash-container">
-        <h1 style="color: rgb(230, 3, 3);">Remembering Our Past</h1>
-        <h1 style="color: rgb(1, 168, 1);">We Create Our Future</h1>
+        <h1>Remembering Our Past</h1>
+        <h2>We Create Our Future</h2>
         <img src="images/1921 logo.png" alt="1921 Logo" class="logo">
-        <h1 class="headingtop">Ventures</h1>
+        <h1 style="color: black; font-size: 50px;letter-spacing: 3px;">Project</h1>
         <a href="main.html" class="enter-link">VISIT</a>
     </div>
 </body>
